@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="dictionarySynonymVM"
+            type="com.mobilization2017.translate.DictionarySynonymVM" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dictionary_synonym_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_small"
+                android:text="@{dictionarySynonymVM.number}"
+                android:textColor="@color/colorDivider"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:id="@+id/dictionary_synonym_original"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{dictionarySynonymVM.original}"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/text_size_normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{TextUtils.isEmpty(dictionarySynonymVM.translate) ? View.GONE : View.VISIBLE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_small"
+                android:gravity="bottom"
+                android:text="@{dictionarySynonymVM.number}"
+                android:textColor="@color/colorDivider"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/dictionary_synonym_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dictionarySynonymVM.translate}"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/text_size_normal" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

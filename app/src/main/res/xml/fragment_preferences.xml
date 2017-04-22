@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="@string/settings_default_language_value"
+        android:entries="@array/settings_language_entries"
+        android:entryValues="@array/settings_language_values"
+        android:key="language"
+        android:title="@string/settings_default_language" />
+
+    <SwitchPreferenceCompat
+        android:key="sync_translate"
+        android:title="@string/settings_sync_translate" />
+
+    <SwitchPreferenceCompat
+        android:key="use_dictionary"
+        android:title="@string/settings_use_dictionary" />
+
+</PreferenceScreen>

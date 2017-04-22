@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Yandex Mobilization 2017</string>
+    <string name="translate_enter_text">Enter text</string>
+    <string name="translate_label">Translation</string>
+    <string name="translate_description_listen">Listen</string>
+    <string name="settings_default_language">Interface language</string>
+    <string name="settings_label">Settings</string>
+    <string name="history_menu_item_delete">Delete</string>
+    <string name="history_label">History</string>
+    <string name="history_dialog_ok">Yes</string>
+    <string name="history_dialog_cancel">Cancel</string>
+    <string name="favorites_label">Favorites</string>
+    <string name="favorites_find">Search in favorites</string>
+    <string name="history_find">Search in history</string>
+    <string name="error_server_connection">Server connection error</string>
+    <string name="error_voice_input_not_supported">Voice input is not supported</string>
+    <string name="translate_description_clear">Clear</string>
+    <string name="translate_description_favorites_add">Add to favorites</string>
+    <string name="translate_description_voice_input">Voice input</string>
+    <string name="settings_use_dictionary">Vocabulary articles</string>
+    <string name="settings_sync_translate">Synchronous translation</string>
+    <string name="translate_voice_input_prompt">Pronounce a word or phrase for translation</string>
+    <string name="history_question_delete_selected">Do you really want to remove selected items from history?</string>
+    <string name="history_question_delete_all">Do you really want to remove all items from history?</string>
+    <string name="error_network_connection">Internet connection problems, check your network connection settings and try again</string>
+    <string name="error_language_not_supported">This language is not supported for playing text</string>
+    <string name="error_connection_timeout">Connection timeout exceeded</string>
+    <string-array name="settings_language_entries">
+        <item>Russian</item>
+        <item>English</item>
+    </string-array>
+    <string name="history_empty">Translation history is empty</string>
+    <string name="history_unsuccesfull_search">No translations found meeting the search criteria</string>
+    <string name="favorites_empty">No saved favorites</string>
+    <string name="translate_dialog_cancel">Cancel</string>
+    <string name="translate_dialog_title">Select language</string>
+    <string name="translate_description_share">Share</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="translateFragment"
+            type="com.mobilization2017.translate.TranslateFragment" />
+
+        <variable
+            name="changeLanguageVM"
+            type="com.mobilization2017.translate.ChangeLanguageVM" />
+    </data>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:contentInsetEnd="0dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:titleTextColor="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/translate_swap_languages_image_view"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:onClick="@{translateFragment::swapLanguages}"
+                android:padding="@dimen/padding_menu_item"
+                android:src="@drawable/ic_swap_horiz" />
+
+            <TextView
+                android:id="@+id/translate_original_language_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_standard"
+                android:layout_toLeftOf="@+id/translate_swap_languages_image_view"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:maxLines="1"
+                android:onClick="@{translateFragment::selectOriginalLanguage}"
+                android:text="@{changeLanguageVM.originalFull}"
+                android:textSize="@dimen/text_size_normal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/translate_destination_language_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_standard"
+                android:layout_toRightOf="@+id/translate_swap_languages_image_view"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:onClick="@{translateFragment::selectDestinationLanguage}"
+                android:text="@{changeLanguageVM.destFull}"
+                android:textSize="@dimen/text_size_normal"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+</layout>

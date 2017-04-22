@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/translate_item"
+        android:icon="@drawable/ic_translate"
+        android:title="@string/translate_label" />
+    <item
+        android:id="@+id/history_item"
+        android:icon="@drawable/ic_marker"
+        android:title="@string/history_label" />
+    <item
+        android:id="@+id/settings_item"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings_label" />
+
+</menu>

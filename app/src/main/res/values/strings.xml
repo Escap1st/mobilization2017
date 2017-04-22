@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Яндекс Мобилизация 2017</string>
+
+    <!--API credentials-->
+    <string name="api_credentials_translate_key" translatable="false">trnsl.1.1.20170319T091036Z.7972d15c1dd93f90.07ebcd0cb42e4ae6762b50eef05ef99484e2da2a</string>
+    <string name="api_credentials_dictionary_key" translatable="false">dict.1.1.20170401T185834Z.2523b499a9b8e171.5ff27453c78f69d59085cf3ee0bdba3de099a351</string>
+    <string name="api_credentials_content_type" translatable="false">application/x-www-form-urlencoded</string>
+    <!---->
+
+    <!--API request-->
+    <string name="api_request_path_translate" translatable="false">https://translate.yandex.net/api/v1.5/tr.json</string>
+    <string name="api_request_path_dictionary" translatable="false">https://dictionary.yandex.net/api/v1/dicservice.json</string>
+    <string name="api_request_get_languages_translate" translatable="false">%1$s/getLangs?key=%2$s&amp;ui=%3$s</string>
+    <string name="api_request_get_languages_dictionary" translatable="false">%1$s/getLangs?key=%2$s</string>
+    <string name="api_request_detect_language" translatable="false">%1$s/detect?key=%2$s&amp;text=%3$s</string>
+    <string name="api_request_translate" translatable="false">%1$s/translate?key=%2$s&amp;text=%3$s&amp;lang=%4$s&amp;options=1</string>
+    <string name="api_request_lookup_dictionary" translatable="false">%1$s/lookup?key=%2$s&amp;text=%3$s&amp;lang=%4$s&amp;flags=8&amp;ui=ru</string>
+    <!---->
+
+    <!--main-->
+    <!---->
+
+    <!--history and favorites-->
+    <string name="history_label">История</string>
+    <string name="history_menu_item_delete">Удалить</string>
+    <string name="history_question_delete_all">Вы действительно хотите удалить из истории все элементы данного списка?</string>
+    <string name="history_question_delete_selected">Вы действительно хотите удалить из истории выбранные элементы?</string>
+    <string name="history_dialog_ok">Да</string>
+    <string name="history_dialog_cancel">Отмена</string>
+    <string name="history_find">Найти в истории</string>
+    <string name="history_empty">История переводов пуста</string>
+    <string name="history_unsuccesfull_search">Не найдено переводов, удовлетворяющих условиям поиска</string>
+
+    <string name="favorites_empty">Нет сохраненных избранных переводов</string>
+    <string name="favorites_label">Избранное</string>
+    <string name="favorites_find">Найти в избранном</string>
+    <!---->
+
+    <!--settings-->
+    <string name="settings_label">Настройки</string>
+    <string name="settings_sync_translate">Синхронный перевод</string>
+    <string name="settings_use_dictionary">Словарные статьи</string>
+    <string name="settings_default_language">Язык интерфейса</string>
+    <string name="settings_default_language_value" translatable="false">ru</string>
+
+    <string-array name="settings_language_entries">
+        <item>Русский</item>
+        <item>Английский</item>
+    </string-array>
+
+    <string-array name="settings_language_values">
+        <item>ru</item>
+        <item>en</item>
+    </string-array>
+    <!---->
+
+    <!--translate-->
+    <string name="translate_label">Перевод</string>
+    <string name="translate_enter_text">Введите текст</string>
+    <string name="translate_description_voice_input">Голосовой ввод</string>
+    <string name="translate_description_listen">Прослушать</string>
+    <string name="translate_description_favorites_add">Добавить в избранное</string>
+    <string name="translate_description_clear">Очистить</string>
+    <string name="translate_description_share">Поделиться</string>
+    <string name="translate_voice_input_prompt">Произнесите слово или фразу для перевода</string>
+    <string name="translate_dialog_cancel">Отмена</string>
+    <string name="translate_dialog_title">Выберите язык</string>
+    <!---->
+
+    <!--errors-->
+    <string name="error_connection_timeout">Превышено время ожидания подключения</string>
+    <string name="error_server_connection">Ошибка соединения с сервером</string>
+    <string name="error_network_connection">Проблемы подключения к сети Интернет. Проверьте настройки своего сетевого соединения и повторите попытку</string>
+    <string name="error_voice_input_not_supported">Голосовой ввод не поддерживается</string>
+    <string name="error_tts_initialization_failed" translatable="false">TextToSpeech initialization failed</string>
+    <string name="error_language_not_supported">Данный язык не поддерживается для воспроизведения текста</string>
+    <!---->
+
+    <!--log messages-->
+    <string name="log_response_success" translatable="false">Response: %1$s</string>
+    <string name="log_response_error" translatable="false">Error response: %1$s</string>
+    <!---->
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Яндекс Мобилизация 2017</string>
+    <string name="translate_label">Перевод</string>
+    <string name="translate_enter_text">Введите текст</string>
+    <string name="translate_voice_input_prompt">Произнесите слово или фразу для перевода</string>
+    <string name="history_menu_item_delete">Удалить</string>
+    <string name="history_label">История</string>
+    <string name="history_find">Найти в истории</string>
+    <string name="history_dialog_ok">Да</string>
+    <string name="history_dialog_cancel">Отмена</string>
+    <string name="favorites_label">Избранное</string>
+    <string name="favorites_find">Найти в избранном</string>
+    <string name="error_connection_timeout">Превышено время ожидания подключения</string>
+    <string name="error_language_not_supported">Данный язык не поддерживается для воспроизведения текста</string>
+    <string name="error_network_connection">Проблемы подключения к сети Интернет. Проверьте настройки своего сетевого соединения и повторите попытку</string>
+    <string name="error_server_connection">Ошибка соединения с сервером</string>
+    <string name="error_voice_input_not_supported">Голосовой ввод не поддерживается</string>
+    <string name="history_question_delete_all">Вы действительно хотите удалить из истории все элементы данного списка?</string>
+    <string name="history_question_delete_selected">Вы действительно хотите удалить из истории выбранные элементы?</string>
+    <string name="settings_default_language">Язык интерфейса</string>
+    <string name="settings_label">Настройки</string>
+    <string name="settings_sync_translate">Синхронный перевод</string>
+    <string name="settings_use_dictionary">Словарные статьи</string>
+    <string name="translate_description_clear">Очистить</string>
+    <string name="translate_description_favorites_add">Добавить в избранное</string>
+    <string name="translate_description_listen">Прослушать</string>
+    <string name="translate_description_voice_input">Голосовой ввод</string>
+    <string-array name="settings_language_entries">
+        <item>Русский</item>
+        <item>Английский</item>
+    </string-array>
+    <string name="history_empty">История переводов пуста</string>
+    <string name="history_unsuccesfull_search">Не найдено переводов, удовлетворяющих условиям поиска</string>
+    <string name="favorites_empty">Нет сохраненных избранных переводов</string>
+    <string name="translate_dialog_title">Выберите язык</string>
+    <string name="translate_dialog_cancel">Отмена</string>
+    <string name="translate_description_share">Поделиться</string>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="historyVM"
+            type="com.mobilization2017.history.HistoryVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/history_toolbar"
+            layout="@layout/toolbar_history" />
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/history_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:clickable="true"
+            android:onClick="@{historyVM::onSearchViewClick}"
+            android:queryHint="@{historyVM.history ? @string/history_find : @string/favorites_find}"
+            android:setOnQueryTextListener="@{historyVM.getOnQueryTextListener}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/colorDivider" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/history_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/history_empty_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/colorDivider"
+                android:textSize="@dimen/text_size_big"
+                android:visibility="@{historyVM.listEmpty ? View.VISIBLE : View.GONE}"
+                android:text="@{historyVM.errorText}"
+                android:padding="16dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

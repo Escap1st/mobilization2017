@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="translateFragment"
+            type="com.mobilization2017.translate.TranslateFragment" />
+
+        <variable
+            name="translateVM"
+            type="com.mobilization2017.translate.TranslateVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/translate_toolbar"
+            layout="@layout/toolbar_translation" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_standard">
+
+            <RelativeLayout
+                android:id="@+id/translate_text_enter_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="@dimen/margin_standard"
+                android:background="@drawable/background_text_view_translate">
+
+                <EditText
+                    android:id="@+id/translate_input_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/translate_clear_text_image_view"
+                    android:layout_toLeftOf="@+id/translate_voice_input_image_view"
+                    android:addTextChangedListener="@{translateVM.getInputTextWatcher}"
+                    android:background="@android:color/transparent"
+                    android:gravity="top"
+                    android:hint="@string/translate_enter_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapSentences"
+                    android:padding="@dimen/padding_edit_text"
+                    android:setOnEditorActionListener="@{translateVM.getOnEditorActionListener}"
+                    android:textSize="@dimen/text_size_big" />
+
+                <ImageView
+                    android:id="@+id/translate_clear_text_image_view"
+                    style="@style/AppTheme.TintedImageViewStyle"
+                    android:layout_alignParentBottom="true"
+                    android:contentDescription="@string/translate_description_clear"
+                    android:onClick="@{translateFragment::clearInput}"
+                    android:src="@drawable/ic_close" />
+
+                <ImageView
+                    android:id="@+id/translate_voice_input_image_view"
+                    style="@style/AppTheme.TintedImageViewStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/margin_standard"
+                    android:contentDescription="@string/translate_description_voice_input"
+                    android:onClick="@{translateFragment::startVoiceInput}"
+                    android:src="@drawable/ic_voice" />
+
+                <ImageView
+                    android:id="@+id/translate_listen_text_image_view"
+                    style="@style/AppTheme.TintedImageViewStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/translate_voice_input_image_view"
+                    android:contentDescription="@string/translate_description_listen"
+                    android:onClick="@{translateFragment::listenOriginalText}"
+                    android:src="@drawable/ic_volume" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/translate_text_enter_relative_layout"
+                android:visibility="@{!(translateVM.downloading || translateVM.inputEmpty || translateVM.error) ? View.VISIBLE : View.GONE}">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/margin_standard"
+                    android:layout_toLeftOf="@+id/translate_listen_translation_image_view">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/translate_translation_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:text="@{translateVM.translation}"
+                            android:textSize="@dimen/text_size_big" />
+
+                        <TextView
+                            android:id="@+id/translate_original_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:text="@{translateVM.original}"
+                            android:textSize="@dimen/text_size_big" />
+
+                        <TextView
+                            android:id="@+id/translate_pos_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_small"
+                            android:text="@{translateVM.pos}"
+                            android:textColor="@color/colorDivider"
+                            android:textSize="@dimen/text_size_small"
+                            android:textStyle="italic" />
+
+                        <LinearLayout
+                            android:id="@+id/translate_synonyms_linear_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+                <ImageView
+                    android:id="@+id/translate_listen_translation_image_view"
+                    style="@style/AppTheme.TintedImageViewStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/margin_standard"
+                    android:contentDescription="@string/translate_description_voice_input"
+                    android:onClick="@{translateFragment::listenTranslation}"
+                    android:src="@drawable/ic_volume" />
+
+                <ImageView
+                    android:id="@+id/translate_favorites_add_image_view"
+                    style="@style/AppTheme.ImageViewStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/translate_listen_translation_image_view"
+                    android:layout_marginBottom="@dimen/margin_standard"
+                    android:contentDescription="@string/translate_description_favorites_add"
+                    android:onClick="@{translateFragment::favoritesAdd}"
+                    android:src="@drawable/ic_marker"
+                    app:colorTint="@{translateVM.favorite ? @color/colorPrimary : @color/colorTint}" />
+
+                <ImageView
+                    android:id="@+id/translate_share_translation_image_view"
+                    style="@style/AppTheme.TintedImageViewStyle"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/translate_favorites_add_image_view"
+                    android:contentDescription="@string/translate_description_share"
+                    android:onClick="@{translateFragment::shareTranslation}"
+                    android:src="@drawable/ic_share" />
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/translate_download_progress"
+                android:layout_width="@dimen/progress_size"
+                android:layout_height="@dimen/progress_size"
+                android:layout_below="@+id/translate_text_enter_relative_layout"
+                android:layout_centerHorizontal="true"
+                android:visibility="@{translateVM.downloading ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/translate_error_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/translate_text_enter_relative_layout"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@{translateVM.errorText}"
+                android:textColor="@color/colorDivider"
+                android:textSize="@dimen/text_size_big"
+                android:visibility="@{translateVM.error &amp; !translateVM.downloading ? View.VISIBLE : View.GONE}" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

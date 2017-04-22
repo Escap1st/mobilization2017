@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_standard">10dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="padding_standard">16dp</dimen>
+    <dimen name="padding_list_item">10dp</dimen>
+    <dimen name="padding_edit_text">5dp</dimen>
+    <dimen name="padding_text_view">5dp</dimen>
+    <dimen name="padding_image_view">5dp</dimen>
+    <dimen name="padding_menu_item">16dp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_big">18sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="width_text_view_stroke">1dp</dimen>
+    <dimen name="progress_size">40dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
+</resources>

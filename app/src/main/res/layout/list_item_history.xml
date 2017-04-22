@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="historyItemVM"
+            type="com.mobilization2017.history.HistoryItemVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{historyItemVM.selected ? @color/colorSelection : @android:color/transparent}"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_list_item">
+
+        <ImageView
+            android:id="@+id/item_history_favorites_image_view"
+            style="@style/AppTheme.ImageViewStyle"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_standard"
+            android:clickable="true"
+            android:onClick="@{historyItemVM::favoritesClick}"
+            android:src="@drawable/ic_marker"
+            app:colorTint="@{historyItemVM.favorite ? @color/colorPrimary : @color/colorTint}" />
+
+        <TextView
+            android:id="@+id/item_history_languages_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_standard"
+            android:text="@{historyItemVM.languages}"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/text_size_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/item_history_languages_text_view"
+            android:layout_toRightOf="@id/item_history_favorites_image_view"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{historyItemVM.originalText}"
+                android:textSize="@dimen/text_size_big" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{historyItemVM.translatedText}"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/text_size_normal" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
