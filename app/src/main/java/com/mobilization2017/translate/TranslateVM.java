@@ -69,10 +69,10 @@ public class TranslateVM extends BaseObservable {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                boolean checkDiffWithoutTrim = isShortDiff(charSequence.toString(), before, count);
+                boolean checkDiffWithoutTrim = isShortDiff(charSequence.toString(), start, before, count);
                 if (isSyncMode || TextUtils.isEmpty(charSequence) || !checkDiffWithoutTrim) {
                     String currentState = charSequence.toString().trim();
-                    if (isShortDiff(currentState, before, count)) {
+                    if (isShortDiff(currentState, start, before, count)) {
                         translateFragment.translateText(currentState, true, false);
                     } else {
                         translateFragment.translateText(currentState, false, !checkDiffWithoutTrim);
@@ -85,10 +85,28 @@ public class TranslateVM extends BaseObservable {
 
             }
 
-            private boolean isShortDiff(String currentState, int before, int count) {
-                return ((currentState.length() > initialState.length() && currentState.substring(0, initialState.length()).equals(initialState)) ||
-                        (currentState.length() < initialState.length() && initialState.substring(0, currentState.length()).equals(currentState)))
-                        && Math.abs(count - before) == 1;//очень плохая попытка проверки на то, что изменение сделано на 1 символ и вручную
+            //вроде бы неплохая попытка проверки на то, что изменение сделано на 1 символ и вручную
+            private boolean isShortDiff(String currentState, int start, int before, int count) {
+                if (Math.abs(count - before) == 1) {
+                    return currentState.length() > initialState.length() ?
+                            checkShortDiff(currentState, initialState, start) :
+                            checkShortDiff(initialState, currentState, start);
+                }
+
+                return false;
+            }
+
+            private boolean checkShortDiff(String biggerString, String smallerString, int start) {
+                String prefix = biggerString.substring(0, start);
+                String edited = biggerString.substring(start, biggerString.length());
+                return !edited.isEmpty() && ((prefix + deleteCharAtPosition(edited, 0)).equals(smallerString) ||
+                        (prefix + deleteCharAtPosition(edited, edited.length() - 1)).equals(smallerString));
+            }
+
+            private String deleteCharAtPosition(String text, int place) {
+                StringBuilder sb = new StringBuilder(text);
+                String result = sb.deleteCharAt(place).toString();
+                return result;
             }
         };
     }
